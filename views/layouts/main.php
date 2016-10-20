@@ -39,7 +39,16 @@ AppAsset::register($this);
     
     $setting =[
         ['label'=>'สถานะคอมพิวเตอร์', 'url' => ['/first1/index']],
+        ['label'=>'ประเภทคอมพิวเตอร์', 'url' => ['/first1/index']],
     ];
+    $regis =[
+        ['label'=>'ทะบียนคอมพิวเตอร์', 'url' => ['/com']],
+        ];
+    $report =[
+        ['label'=>'รายงาน', 'url' => ['/reportcomtype']],
+        ['label'=>'รายงานปัญหาคอมพิวเตอร์', 'url' => ['/reportcomservice']],
+        ['label'=>'กราฟสรุปรายงานจำนวนคอมพิวเตอร์', 'url' => ['/chartcom']],
+        ];
     
     
     echo Nav::widget([
@@ -47,8 +56,8 @@ AppAsset::register($this);
         'encodeLabels'=>false,
         'items' => [
             ['label' => '<span class ="glyphicon glyphicon-home"></span> หน้าแรก', 'url' => ['/site/index']],
-            ['label' => '<span class ="glyphicon glyphicon-cloud"></span> เกี่ยวกับ', 'url' => ['/site/about']],
-            ['label' => '<span class ="glyphicon glyphicon-tint"></span> ติดต่อ', 'url' => ['/site/contact']],
+            ['label' => '<span class ="glyphicon glyphicon-home"></span> ลงทะเบียน', 'items' =>$regis],
+             ['label' => '<span class ="glyphicon glyphicon-home"></span> ระบบรายงาน', 'items' =>$report],
             ['label' => '<span class ="glyphicon glyphicon-tint"></span> ทดสอบ', 'url' => ['/first1/index']],
             ['label' => '<span class ="glyphicon glyphicon-tint"></span> ตั้งค่า', 'items' => $setting],
             Yii::$app->user->isGuest ? (
